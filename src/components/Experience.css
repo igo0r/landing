@@ -1,0 +1,226 @@
+.experience {
+  padding: 5rem 2rem;
+  background-color: var(--bg-secondary);
+}
+
+.experience-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.experience-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 1.25rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--accent);
+  opacity: 0.3;
+}
+
+.experience-card {
+  background-color: var(--bg-primary);
+  padding: 1.75rem;
+  border-radius: 8px;
+  margin-left: 3rem;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 1.75rem;
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.experience-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.experience-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.experience-icon {
+  font-size: 1.5rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.experience-card-title {
+  flex: 1;
+  min-width: 200px;
+}
+
+.experience-role {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.experience-company {
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.experience-period {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.experience-description {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.experience-responsibilities {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-responsibilities li {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.experience-responsibilities li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.experience-responsibilities li:last-child {
+  margin-bottom: 0;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .experience {
+    padding: 4rem 1.5rem;
+  }
+
+  .experience-heading {
+    font-size: 2.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .experience-card {
+    padding: 1.5rem;
+  }
+
+  .experience-role {
+    font-size: 1.125rem;
+  }
+
+  .experience-company {
+    font-size: 0.9375rem;
+  }
+
+  .experience-period {
+    font-size: 0.875rem;
+  }
+
+  .experience-description,
+  .experience-responsibilities li {
+    font-size: 0.875rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .experience {
+    padding: 3rem 1rem;
+  }
+
+  .experience-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .experience-timeline::before {
+    display: none;
+  }
+
+  .experience-card {
+    margin-left: 0;
+    padding: 1.25rem;
+  }
+
+  .experience-card::before {
+    display: none;
+  }
+
+  .experience-card-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .experience-icon {
+    display: none;
+  }
+
+  .experience-card-title {
+    min-width: 0;
+  }
+
+  .experience-role {
+    font-size: 1.125rem;
+  }
+
+  .experience-company {
+    font-size: 0.875rem;
+  }
+
+  .experience-period {
+    font-size: 0.8125rem;
+    order: -1;
+  }
+
+  .experience-description,
+  .experience-responsibilities li {
+    font-size: 0.875rem;
+  }
+
+  .experience-responsibilities li {
+    padding-left: 1rem;
+  }
+}
