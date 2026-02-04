@@ -1,0 +1,82 @@
+.about {
+  padding: 5rem 2rem;
+  background-color: var(--bg-secondary);
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.about-text {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.about-highlight {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.about-motto {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  border-left: 4px solid var(--accent);
+  background-color: var(--bg-primary);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .about {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-heading {
+    font-size: 2.25rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-motto {
+    font-size: 1.125rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about {
+    padding: 3rem 1rem;
+  }
+
+  .about-heading {
+    font-size: 2rem;
+  }
+
+  .about-text p {
+    font-size: 0.9375rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-motto {
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
+  }
+}
