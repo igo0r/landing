@@ -11,7 +11,7 @@ const experiences = [
   },
   {
     role: 'Lead Test Automation Engineer',
-    company: 'Cyberhaven',
+    company: 'Eduki',
     period: 'Mar 2019 - Jan 2025',
     description: 'Led the QA team and established testing practices across the organization.',
     responsibilities: [

@@ -7,7 +7,7 @@ const About = () => {
         <h2 className="about-heading">About Me</h2>
         <div className="about-text">
           <p>
-            I'm a seasoned QA professional with over a decade of experience in software testing
+            I'm SDET professional with over a decade of experience in software testing
             and test automation. My passion lies in building robust test frameworks that ensure
             product quality while enabling teams to ship faster and more confidently.
           </p>
@@ -18,8 +18,9 @@ const About = () => {
             product reliability.
           </p>
           <p>
-            My technical expertise spans <span className="about-highlight">WebdriverIO</span>, {' '}
-            <span className="about-highlight">JavaScript</span>, {' '}
+            My technical expertise spans <span className="about-highlight">Playwright</span>, {' '}
+            <span className="about-highlight">WebdriverIO</span>, {' '}
+            <span className="about-highlight">Tyoescript</span>, {' '}
             <span className="about-highlight">Selenium4</span>, {' '}
             <span className="about-highlight">Jenkins CI</span>, and {' '}
             <span className="about-highlight">Docker</span>. I'm constantly exploring new tools

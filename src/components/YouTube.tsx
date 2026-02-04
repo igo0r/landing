@@ -9,7 +9,7 @@ const YouTube = () => {
         <div className="youtube-video-container">
           <div className="youtube-video-wrapper">
             <iframe
-              src="https://www.youtube.com/embed/videoseries?list=UU_xGR9JCe8IG3KrkLgFpUcA"
+              src="https://www.youtube.com/embed/jWpmVYuzaCU"
               title="QA Routine YouTube Channel"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
