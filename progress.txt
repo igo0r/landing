@@ -1,0 +1,240 @@
+## Codebase Patterns
+- CSS variables defined in src/index.css for consistent theming
+- Use `npx tsc --noEmit` for typecheck (no npm script configured)
+- Build with `npm run build` to verify all changes work
+- Components have co-located CSS files (e.g., Header.tsx + Header.css)
+- Use react-icons for icons (e.g., FaLinkedin from 'react-icons/fa')
+- Use `import type { X }` for type-only imports (verbatimModuleSyntax enabled)
+
+---
+
+## 2026-02-03 - US-002
+- What was implemented: Dark theme CSS variables and base styles
+- Files changed:
+  - src/index.css - Complete rewrite with CSS variables for dark theme
+  - src/App.css - Cleared Vite demo styles
+- **Learnings for future iterations:**
+  - CSS variables: --bg-primary, --bg-secondary, --text-primary, --text-secondary, --accent
+  - Responsive breakpoints: 768px (mobile), 1024px (tablet)
+  - Use Inter font with system-ui fallback
+  - scroll-behavior: smooth already added for future section navigation
+---
+
+## 2026-02-03 - US-003
+- What was implemented: Header component with navigation
+- Files changed:
+  - src/components/Header.tsx - New component with NavLink navigation and hamburger menu
+  - src/components/Header.css - Styles for sticky header, responsive design, mobile menu
+- **Learnings for future iterations:**
+  - NavLink from react-router-dom provides `isActive` callback for dynamic class styling
+  - Hamburger menu uses CSS transforms for smooth animation (translateY + rotate)
+  - Mobile nav uses max-height transition for slide-down animation
+  - z-index: 1000 for sticky header ensures it stays above content
+  - Use aria-label and aria-expanded for accessibility on hamburger button
+---
+
+## 2026-02-03 - US-004
+- What was implemented: Footer component with social links
+- Files changed:
+  - src/components/Footer.tsx - New component with LinkedIn, YouTube, GitHub icons
+  - src/components/Footer.css - Dark themed footer styling with responsive design
+  - package.json - Added react-icons dependency
+- **Learnings for future iterations:**
+  - react-icons package provides FaLinkedin, FaYoutube, FaGithub from 'react-icons/fa'
+  - Always use target="_blank" with rel="noopener noreferrer" for security on external links
+  - Use aria-label on icon-only links for accessibility
+  - Footer has margin-top: auto for sticky footer behavior (works with flexbox parent)
+---
+
+## 2026-02-03 - US-005
+- What was implemented: Layout component that wraps pages with Header and Footer
+- Files changed:
+  - src/components/Layout.tsx - New component wrapping children with Header and Footer
+  - src/components/Layout.css - Flexbox layout for sticky footer, max-width container
+- **Learnings for future iterations:**
+  - Use `import type { ReactNode }` (not `import { ReactNode }`) due to verbatimModuleSyntax in tsconfig
+  - Layout uses flexbox with min-height: 100vh and flex: 1 on main content for sticky footer
+  - Container max-width: 1200px with margin: 0 auto for centered content
+  - Responsive padding adjustments for mobile/tablet breakpoints
+---
+
+## 2026-02-03 - US-006
+- What was implemented: React Router with Home and Blog routes
+- Files changed:
+  - src/main.tsx - Added BrowserRouter wrapper around App
+  - src/App.tsx - Replaced Vite demo with Routes and Layout wrapper
+  - src/pages/Home.tsx - New placeholder Home page component
+  - src/pages/Blog.tsx - New placeholder Blog page component
+  - src/pages/BlogPost.tsx - New placeholder BlogPost page with slug param from URL
+- **Learnings for future iterations:**
+  - BrowserRouter should wrap the entire app at the top level (in main.tsx)
+  - Routes component from react-router-dom defines route paths
+  - Use useParams<{ slug: string }>() to get URL parameters in components
+  - All pages are wrapped in Layout component for consistent Header/Footer
+  - Dynamic routes use :slug syntax for URL parameters
+---
+
+## 2026-02-03 - US-007
+- What was implemented: Hero section component for landing page
+- Files changed:
+  - src/components/Hero.tsx - New component with name, title, and tagline
+  - src/components/Hero.css - Centered layout with generous padding, responsive design
+- **Learnings for future iterations:**
+  - Hero uses min-height: 60vh for a prominent above-the-fold presence
+  - Use --accent color for the job title to make it stand out
+  - Section components follow pattern: wrapper section > content container > elements
+  - Responsive breakpoints: tablet 1024px, mobile 768px with scaled typography
+---
+
+## 2026-02-03 - US-008
+- What was implemented: About section component with bio content
+- Files changed:
+  - src/components/About.tsx - New component with About Me heading, bio paragraphs, tech stack highlights, and motto
+  - src/components/About.css - Styled section with bg-secondary background, blockquote for motto
+- **Learnings for future iterations:**
+  - Use span with about-highlight class and --accent color to emphasize tech skills inline
+  - Blockquote element with left border is a nice pattern for quotes/mottos
+  - Section alternating backgrounds (Hero: bg-primary, About: bg-secondary) creates visual separation
+  - line-height: 1.8 for paragraph-heavy sections improves readability
+---
+
+## 2026-02-03 - US-009
+- What was implemented: Skills/What I Do section component with skill cards grid and top skills tags
+- Files changed:
+  - src/components/Skills.tsx - New component with 4 skill cards (Test Automation, QA Leadership, CI/CD Integration, Mentoring) and top skills list
+  - src/components/Skills.css - Grid layout with responsive breakpoints (4 cols desktop, 2 cols tablet, 1 col mobile)
+- **Learnings for future iterations:**
+  - Icons from react-icons/fa: FaRobot, FaUsers, FaCogs, FaChalkboardTeacher work well for skill categories
+  - Card hover effect with transform: translateY(-4px) and box-shadow creates engaging interaction
+  - Use pill-shaped tags with border and accent color for skill tags (border-radius: 20px)
+  - Skills section uses bg-primary to alternate from About section's bg-secondary
+---
+
+## 2026-02-03 - US-010
+- What was implemented: Experience section component with timeline layout and 4 work positions
+- Files changed:
+  - src/components/Experience.tsx - New component with 4 positions (Cyberhaven x2, LoveCrafts, Earlier career)
+  - src/components/Experience.css - Timeline layout with vertical line, circular markers, card hover effects
+- **Learnings for future iterations:**
+  - FaBriefcase icon from react-icons/fa works well for work experience
+  - Timeline uses ::before pseudo-elements for vertical line and circular markers
+  - On mobile, timeline line and markers are hidden for simpler card-only layout
+  - Experience section uses bg-secondary to alternate from Skills section's bg-primary
+  - Arrow character '→' works well as bullet point for responsibility lists
+---
+
+## 2026-02-03 - US-011
+- What was implemented: Education section component with university info
+- Files changed:
+  - src/components/Education.tsx - New component with Sumy State University and CS degree
+  - src/components/Education.css - Simple card layout with icon, responsive design
+- **Learnings for future iterations:**
+  - FaGraduationCap icon from react-icons/fa works well for education
+  - Education section uses bg-primary to alternate from Experience section's bg-secondary
+  - Simpler card layout (no timeline) works well for single-item sections
+  - Same hover effect pattern (translateY + box-shadow) maintains consistency
+---
+
+## 2026-02-03 - US-012
+- What was implemented: YouTube section component with embedded playlist and channel link
+- Files changed:
+  - src/components/YouTube.tsx - New component with iframe embed and channel link button
+  - src/components/YouTube.css - Responsive video container with 16:9 aspect ratio
+- **Learnings for future iterations:**
+  - YouTube channel uploads playlist: Use embed URL format `https://www.youtube.com/embed/videoseries?list=UU_xGR9JCe8IG3KrkLgFpUcA`
+  - The "UU_" prefix + channel ID gives the uploads playlist (UC -> UU transformation)
+  - Responsive iframe: Use padding-bottom: 56.25% with position: relative wrapper and position: absolute iframe
+  - FaYoutube icon from react-icons/fa works well for YouTube branding
+  - YouTube section uses bg-secondary to alternate from Education section's bg-primary
+  - Button with border + hover fill creates engaging CTA for external links
+---
+
+## 2026-02-04 - US-013
+- What was implemented: Assembled Home page with all landing page sections
+- Files changed:
+  - src/pages/Home.tsx - Updated from placeholder to import and render all section components in order
+- **Learnings for future iterations:**
+  - Section order: Hero, About, Skills, Experience, Education, YouTube
+  - Each section component already has its own padding, so no additional spacing needed on the Home page
+  - Sections alternate backgrounds (bg-primary/bg-secondary) for visual separation
+  - scroll-behavior: smooth was already configured in index.css
+  - Simple component composition pattern: import all sections and render in order within home-page div
+---
+
+## 2026-02-04 - US-014
+- What was implemented: Blog data structure and sample articles
+- Files changed:
+  - src/content/blog/getting-started-with-playwright.md - Sample blog post about Playwright test automation
+  - src/content/blog/building-qa-team.md - Sample blog post about building QA teams
+  - src/data/posts.ts - Post metadata array with slug, title, date, description, and content fields
+- **Learnings for future iterations:**
+  - Blog posts stored as markdown files in src/content/blog/ but also as content strings in posts.ts
+  - Post interface: { slug, title, date, description, content }
+  - Posts array is sorted newest first (building-qa-team is first with 2025-01-28 date)
+  - Markdown content in TypeScript uses template literals with backticks for multiline strings
+  - Code blocks in markdown content need escaped backticks when inside template literals (\`\`\` becomes \\\`\\\`\\\`)
+---
+
+## 2026-02-04 - US-015
+- What was implemented: Blog list page with article cards
+- Files changed:
+  - src/pages/Blog.tsx - Updated from placeholder to display article list with cards
+  - src/pages/Blog.css - New stylesheet for blog page with responsive grid layout
+- **Learnings for future iterations:**
+  - Page-level CSS files go in src/pages/ alongside the page component
+  - Use Link component from react-router-dom for internal navigation (blog cards)
+  - Sort posts with [...posts].sort() to avoid mutating the original array
+  - Use HTML time element with dateTime attribute for semantic date markup
+  - toLocaleDateString('en-US', { year, month, day }) formats dates nicely
+  - Card hover effect: title changes to accent color using .blog-card:hover .blog-card-title selector
+  - "Read more →" with arrow character provides clear call-to-action
+---
+
+## 2026-02-04 - US-016
+- What was implemented: Single blog post page with markdown rendering and syntax highlighting
+- Files changed:
+  - src/pages/BlogPost.tsx - Updated from placeholder to full article page with ReactMarkdown and syntax highlighting
+  - src/pages/BlogPost.css - New stylesheet for blog post page with responsive design and markdown styling
+  - package.json / package-lock.json - Added react-markdown, react-syntax-highlighter, @types/react-syntax-highlighter
+- **Learnings for future iterations:**
+  - Use ReactMarkdown component for rendering markdown content
+  - Use Prism (react-syntax-highlighter/dist/esm/styles/prism) with oneDark theme for code syntax highlighting
+  - Code component in ReactMarkdown receives className with "language-X" format - extract language with regex
+  - Use PreTag="div" in SyntaxHighlighter to avoid nesting pre inside pre
+  - Hide h1 in post body with `display: none` since title is already shown in the header
+  - Inline code styling: background color, accent text color, rounded corners
+  - On mobile, code blocks can extend outside container with negative margin for full-width effect
+---
+
+## 2026-02-04 - US-017
+- What was implemented: GitHub Actions workflow for automated deployment to GitHub Pages
+- Files changed:
+  - .github/workflows/deploy.yml - New workflow file for CI/CD deployment
+- **Learnings for future iterations:**
+  - GitHub Pages deployment uses actions/deploy-pages@v4 for deployment step
+  - Workflow has two jobs: build (compiles and uploads artifact) and deploy (deploys to Pages)
+  - Required permissions: contents: read, pages: write, id-token: write
+  - Use actions/configure-pages@v5 to set up Pages configuration
+  - Use actions/upload-pages-artifact@v3 with path: './dist' to upload build output
+  - Concurrency group "pages" prevents multiple simultaneous deployments
+  - Node.js 20 with npm cache enabled speeds up builds
+  - Vite builds to dist/ folder by default
+---
+
+## 2026-02-04 - US-018
+- What was implemented: Final polish and responsive testing verification
+- Files changed:
+  - prd.json - Marked US-018 as passing
+  - progress.txt - Added completion entry
+- **Verification performed:**
+  - Typecheck: npx tsc --noEmit passes with no errors
+  - Build: npm run build succeeds
+  - Navigation: All routes work (/, /blog, /blog/:slug) via React Router
+  - Responsive CSS: Breakpoints at 768px (mobile) and 1024px (tablet) in all component CSS files
+  - Dark theme: All components use CSS variables (--bg-primary, --bg-secondary, --text-primary, --text-secondary, --accent)
+  - External links: All 4 external links (LinkedIn, YouTube x2, GitHub) have target="_blank" and rel="noopener noreferrer"
+- **Learnings for future iterations:**
+  - Final polish story benefits from code review approach to verify all acceptance criteria
+  - Grep tool is useful for verifying patterns across all files (e.g., href= and target="_blank" usage)
+  - Build verification catches TypeScript errors that might not show in tsc --noEmit alone
+---
